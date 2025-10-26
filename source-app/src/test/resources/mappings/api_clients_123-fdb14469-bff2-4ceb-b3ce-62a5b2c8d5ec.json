@@ -1,0 +1,22 @@
+{
+  "id" : "fdb14469-bff2-4ceb-b3ce-62a5b2c8d5ec",
+  "name" : "api_clients_123",
+  "request" : {
+    "url" : "/api/clients/123",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"id\":123,\"name\":\"Client 123\",\"email\":\"client123@example.com\"}",
+    "headers" : {
+      "Keep-Alive" : "timeout=60",
+      "Date" : "Thu, 23 Oct 2025 02:09:47 GMT",
+      "Content-Type" : "text/plain;charset=UTF-8"
+    }
+  },
+  "uuid" : "fdb14469-bff2-4ceb-b3ce-62a5b2c8d5ec",
+  "persistent" : true,
+  "scenarioName" : "scenario-1-api-clients-123",
+  "requiredScenarioState" : "scenario-1-api-clients-123-2",
+  "insertionIndex" : 1
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1001,
+    "userId": 1,
+    "total": 999.99,
+    "status": "completed"
+  },
+  {
+    "id": 1002,
+    "userId": 2,
+    "total": 12.50,
+    "status": "pending"
+  }
+]
