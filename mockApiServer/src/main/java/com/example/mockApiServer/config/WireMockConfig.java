@@ -12,12 +12,31 @@ public class WireMockConfig {
     @Value("${wiremock.server.port:8089}")
     private int wireMockPort;
     
+    @Value("${wiremock.mode:STUB}")
+    private String mode;
+    
+    @Value("${wiremock.proxy-url:http://localhost:8081}")
+    private String proxyUrl;
+    
     @Bean
     public WireMockServer wireMockServer() {
         WireMockServer server = new WireMockServer(WireMockConfiguration.options()
-                .port(wireMockPort));
+                .port(wireMockPort)
+                .usingFilesUnderDirectory("./wiremock"));
+        
         server.start();
-        System.out.println("Wiremock Server started at " + wireMockPort);
+        
+        // Configure based on mode
+        if ("PROXY".equalsIgnoreCase(mode)) {
+            // Proxy mode: forward all requests to target and record
+            server.startRecording(proxyUrl);
+            System.out.println("✅ WireMock started in PROXY mode, recording to: " + proxyUrl);
+        } else {
+            // Stub mode: serve recorded responses
+            System.out.println("✅ WireMock started in STUB mode, serving mocked responses");
+        }
+        
+        System.out.println("✅ WireMock Server started at port " + wireMockPort);
         return server;
     }
 }
